@@ -3,11 +3,11 @@
     <%@ include file="../layout/header.jsp" %>
 
         <div class="container my-3">
-            
-                <div class="mb-3">
-                    <a href="/board/${dto.id}/updateForm" class="btn btn-warning">수정</a>
-                    <button onclick="deleteById(${dto.id})" class="btn btn-danger">삭제</button>
-                </div>
+
+            <div class="mb-3">
+                <a href="/board/${dto.id}/updateForm" class="btn btn-warning">수정</a>
+                <button onclick="deleteById(${dto.id})" class="btn btn-danger">삭제</button>
+            </div>
 
             <script>
                 function deleteById(id) {
@@ -39,13 +39,14 @@
             </div>
             <hr />
 
-            <div class="card">
-                <form>
+            <div class="card mt-3">
+                <form action="/reply" method="post">
+                    <input type="hidden" name="boardId" value="${dto.id}">
                     <div class="card-body">
-                        <textarea id="reply-content" class="form-control" rows="1"></textarea>
+                        <textarea name="comment" id="reply-comment" class="form-control" rows="1"></textarea>
                     </div>
                     <div class="card-footer">
-                        <button type="button" id="btn-reply-save" class="btn btn-primary">등록</button>
+                        <button type="submit" id="btn-reply-save" class="btn btn-primary">등록</button>
                     </div>
                 </form>
             </div>
